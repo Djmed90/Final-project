@@ -1,0 +1,81 @@
+var currentScene = 0;
+
+var Button = function(config) {
+    this.x = config.x || -1;
+    this.y = config.y || 0;
+    this.width = config.width || 66;
+    this.height = config.height || 51;
+    this.label = config.label || "Click";
+    this.onClick = config.onClick || function() {};
+};
+
+Button.prototype.draw = function() {
+    fill(0, 234, 255);
+    rect(this.x, this.y, this.width, this.height, 5);
+    fill(0, 0, 0);
+    textSize(19);
+    textAlign(LEFT, TOP);
+    text(this.label, this.x+10, this.y+this.height/4);
+};
+
+Button.prototype.isMouseInside = function() {
+    return mouseX > this.x &&
+           mouseX < (this.x + this.width) &&
+           mouseY > this.y &&
+           mouseY < (this.y + this.height);
+};
+
+Button.prototype.handleMouseClick = function() {
+    if (this.isMouseInside()) {
+        this.onClick();
+    }
+};
+
+var startButton = new Button({
+    x: 167,
+    y: 232,
+    label: "Start",
+    onClick: function() {
+        currentScene = 1;
+    }
+});
+
+var splash = function ()
+{
+    background(0, 204, 255);
+    fill(213, 0, 255);
+    textSize(55);
+    text("Walls", 128, 95);
+    fill(0, 0, 0);
+    textSize(15);
+    text("By: Nick Rapoza and Darren Medeiros", 76, 180);
+    startButton.draw();
+    
+
+};
+var walls = function ()
+{
+    background(0, 0, 0);
+    fill(0, 0, 0);
+    stroke(255, 255, 255);
+    strokeWeight(10);
+    rect(100,33,215,329);
+    
+    };
+    
+mouseClicked = function() {
+    if (currentScene === 0)
+    {
+    startButton.handleMouseClick();
+    }
+};
+draw = function() {
+    if (currentScene === 0) 
+        { splash();
+        
+        }
+    if (currentScene === 1)
+    { walls();
+    }
+        
+};
