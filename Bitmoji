@@ -1,0 +1,135 @@
+var drawFace = function(bitmojiX, bitmojiY, faceSize)
+{
+//Face Body
+fill(255, 218, 150);
+noStroke();
+quad(bitmojiX+(faceSize/100*109), bitmojiY+(faceSize/100*98), bitmojiX+(faceSize/100*110), bitmojiY+(faceSize/100*64), bitmojiX+(faceSize/100*58), bitmojiY+(faceSize/100*65), bitmojiX+(faceSize/100*61), bitmojiY+(faceSize/100*97));
+stroke(0, 0, 0);
+ellipse(bitmojiX+(faceSize/100*84),bitmojiY+(faceSize/100*32),faceSize/100*75,faceSize/100*87);
+
+//Ears
+arc(bitmojiX+(faceSize/100*56),bitmojiY+(faceSize/100*39),faceSize/100*35,faceSize/100*33, 111, 244);
+arc(bitmojiX+(faceSize/100*112),bitmojiY+(faceSize/100*39),faceSize/100*31,faceSize/100*33, -50, 81);
+
+//Mouth
+fill(0, 0, 0);
+arc(bitmojiX+(faceSize/100*84),bitmojiY+(faceSize/100*48),faceSize/100*30,faceSize/100*32, 3, 177);
+fill(255, 161, 161);
+arc(bitmojiX+(faceSize/100*84),bitmojiY+(faceSize/100*59),faceSize/100*22,faceSize/100*11, -18, 201);
+quad(bitmojiX+(faceSize/100*97),bitmojiY+(faceSize/100*51),bitmojiX+(faceSize/100*100),bitmojiY+(faceSize/100*48),bitmojiX+(faceSize/100*71),bitmojiY+(faceSize/100*49),bitmojiX+(faceSize/100*69),bitmojiY+(faceSize/100*52));
+
+//Teeth
+fill(255, 255, 255);
+noStroke();
+quad(bitmojiX+(faceSize/100*97),bitmojiY+(faceSize/100*55),bitmojiX+(faceSize/100*99),bitmojiY+(faceSize/100*50),bitmojiX+(faceSize/100*69),bitmojiY+(faceSize/100*50),bitmojiX+(faceSize/100*72),bitmojiY+(faceSize/100*55));
+
+//Eyes
+stroke(0, 0, 0);
+fill(255, 255, 255);
+ellipse(bitmojiX+(faceSize/100*69), bitmojiY+(faceSize/100*25), faceSize/100*15, faceSize/100*9);
+ellipse(bitmojiX+(faceSize/100*97), bitmojiY+(faceSize/100*25), faceSize/100*15, faceSize/100*9);
+fill(0, 162, 255);
+ellipse(bitmojiX+(faceSize/100*69), bitmojiY+(faceSize/100*25), faceSize/100*6, faceSize/100*7);
+ellipse(bitmojiX+(faceSize/100*97), bitmojiY+(faceSize/100*25), faceSize/100*6, faceSize/100*7);
+fill(0, 0, 0);
+noStroke();
+ellipse(bitmojiX+(faceSize/100*69), bitmojiY+(faceSize/100*25), faceSize/100*-3, faceSize/100*2);
+ellipse(bitmojiX+(faceSize/100*97), bitmojiY+(faceSize/100*25), faceSize/100*-3, faceSize/100*2);
+
+//Nose Shaft
+stroke(0, 0, 0);
+line(bitmojiX+(faceSize/100*86),bitmojiY+(faceSize/100*21),bitmojiX+(faceSize/100*88),bitmojiY+(faceSize/100*36));
+line(bitmojiX+(faceSize/100*78),bitmojiY+(faceSize/100*21),bitmojiX+(faceSize/100*80),bitmojiY+(faceSize/100*36));
+
+//Nose
+fill(255, 225, 143);
+ellipse(bitmojiX+(faceSize/100*90),bitmojiY+(faceSize/100*38),faceSize/100*8,faceSize/100*6);
+ellipse(bitmojiX+(faceSize/100*78),bitmojiY+(faceSize/100*38),faceSize/100*6,faceSize/100*7);
+arc(bitmojiX+(faceSize/100*84),bitmojiY+(faceSize/100*26),faceSize/100*16,faceSize/100*33, 52, 135);
+
+//Neck
+stroke(0, 0, 0);
+fill(255, 218, 150);
+line(bitmojiX+(faceSize/100*110),bitmojiY+(faceSize/100*64),bitmojiX+(faceSize/100*110),bitmojiY+(faceSize/100*96));
+line(bitmojiX+(faceSize/100*60),bitmojiY+(faceSize/100*65),bitmojiX+(faceSize/100*62),bitmojiY+(faceSize/100*98));
+arc(bitmojiX+(faceSize/100*86),bitmojiY+(faceSize/100*77),faceSize/100*56, faceSize/100*72, 33, 146);
+
+};
+
+
+
+
+var drawHair = function(bitmojiX, bitmojiY, hairSize)
+{
+//Eyebrows
+fill(64, 39, 22);
+stroke(0, 0, 0);
+quad(bitmojiX+(hairSize/100*57),bitmojiY+(hairSize/100*19),bitmojiX+(hairSize/100*74),bitmojiY+(hairSize/100*16),bitmojiX+(hairSize/100*72),bitmojiY+(hairSize/100*12),bitmojiX+(hairSize/100*55),bitmojiY+(hairSize/100*17));
+quad(bitmojiX+(hairSize/100*110),bitmojiY+(hairSize/100*20),bitmojiX+(hairSize/100*109),bitmojiY+(hairSize/100*17),bitmojiX+(hairSize/100*92),bitmojiY+(hairSize/100*12),bitmojiX+(hairSize/100*93),bitmojiY+(hairSize/100*17));
+
+//Hair
+stroke(0, 0, 0);
+fill(51, 34, 13);
+triangle(bitmojiX+(hairSize/100*50),bitmojiY+(hairSize/100*9),bitmojiX+(hairSize/100*51),bitmojiY+(hairSize/100*43),bitmojiX+(hairSize/100*38),bitmojiY+(hairSize/100*12));
+triangle(bitmojiX+(hairSize/100*127),bitmojiY+(hairSize/100*10),bitmojiX+(hairSize/100*112),bitmojiY+(hairSize/100*40),bitmojiX+(hairSize/100*114),bitmojiY+(hairSize/100*12));
+fill(107, 86, 53);
+noStroke();
+arc(bitmojiX+(hairSize/100*85),bitmojiY+(hairSize/100*5),hairSize/100*99,hairSize/100*44, 163, 267);
+arc(bitmojiX+(hairSize/100*85),bitmojiY+(hairSize/100*5),hairSize/100*88,hairSize/100*44, 265, 378);
+quad(bitmojiX+(hairSize/100*35),bitmojiY+(hairSize/100*12),bitmojiX+(hairSize/100*82),bitmojiY-(hairSize/100*2),bitmojiX+(hairSize/100*82),bitmojiY-(hairSize/100*17),bitmojiX+(hairSize/100*52),bitmojiY-(hairSize/100*4));
+quad(bitmojiX+(hairSize/100*129),bitmojiY+(hairSize/100*13),bitmojiX+(hairSize/100*115),bitmojiY-(hairSize/100*2),bitmojiX+(hairSize/100*80),bitmojiY-(hairSize/100*13),bitmojiX+(hairSize/100*84),bitmojiY+(hairSize/100*5));
+
+};
+
+
+var drawShirt = function(bitmojiX, bitmojiY, shirtSize)
+{
+//Shirt
+stroke(0, 0, 0);
+fill(255, 255, 255);
+triangle(bitmojiX+(shirtSize/100*145),bitmojiY+(shirtSize/100*125),bitmojiX+(shirtSize/100*27),bitmojiY+(shirtSize/100*124),bitmojiX+(shirtSize/100*82),bitmojiY+(shirtSize/100*191));
+quad(bitmojiX+(shirtSize/100*146),bitmojiY+(shirtSize/100*126),bitmojiX+(shirtSize/100*111),bitmojiY+(shirtSize/100*97),bitmojiX+(shirtSize/100*90),bitmojiY+(shirtSize/100*125),bitmojiX+(shirtSize/100*110),bitmojiY+(shirtSize/100*129));
+quad(bitmojiX+(shirtSize/100*27),bitmojiY+(shirtSize/100*126),bitmojiX+(shirtSize/100*62),bitmojiY+(shirtSize/100*97),bitmojiX+(shirtSize/100*84),bitmojiY+(shirtSize/100*123),bitmojiX+(shirtSize/100*67),bitmojiY+(shirtSize/100*129));
+fill(0, 0, 0);
+line(bitmojiX+(shirtSize/100*93),bitmojiY+(shirtSize/100*127),bitmojiX+(shirtSize/100*95),bitmojiY+(shirtSize/100*182));
+line(bitmojiX+(shirtSize/100*77),bitmojiY+(shirtSize/100*118),bitmojiX+(shirtSize/100*80),bitmojiY+(shirtSize/100*187));
+//OuterShirt
+fill(0, 0, 0);
+quad(bitmojiX-(shirtSize/100*5),bitmojiY+(shirtSize/100*126),bitmojiX+(shirtSize/100*64),bitmojiY+(shirtSize/100*97),bitmojiX+(shirtSize/100*33),bitmojiY+(shirtSize/100*123),bitmojiX+(shirtSize/100*24),bitmojiY+(shirtSize/100*129));
+quad(bitmojiX-(shirtSize/100*4),bitmojiY+(shirtSize/100*126),bitmojiX+(shirtSize/100*81),bitmojiY+(shirtSize/100*191),bitmojiX+(shirtSize/100*33),bitmojiY+(shirtSize/100*123),bitmojiX+(shirtSize/100*24),bitmojiY+(shirtSize/100*129));
+quad(bitmojiX+(shirtSize/100*174),bitmojiY+(shirtSize/100*126),bitmojiX+(shirtSize/100*110),bitmojiY+(shirtSize/100*96),bitmojiX+(shirtSize/100*141),bitmojiY+(shirtSize/100*123),bitmojiX+(shirtSize/100*145),bitmojiY+(shirtSize/100*129));
+quad(bitmojiX+(shirtSize/100*174),bitmojiY+(shirtSize/100*126),bitmojiX+(shirtSize/100*83),bitmojiY+(shirtSize/100*191),bitmojiX+(shirtSize/100*142),bitmojiY+(shirtSize/100*127),bitmojiX+(shirtSize/100*152),bitmojiY+(shirtSize/100*129));
+quad(bitmojiX+(shirtSize/100*174),bitmojiY+(shirtSize/100*205),bitmojiX+(shirtSize/100*67),bitmojiY+(shirtSize/100*204),bitmojiX+(shirtSize/100*159),bitmojiY+(shirtSize/100*127),bitmojiX+(shirtSize/100*174),bitmojiY+(shirtSize/100*125));
+quad(bitmojiX-(shirtSize/100*4),bitmojiY+(shirtSize/100*125),bitmojiX+(shirtSize/100*1),bitmojiY+(shirtSize/100*204),bitmojiX+(shirtSize/100*95),bitmojiY+(shirtSize/100*204),bitmojiX+(shirtSize/100*27),bitmojiY+(shirtSize/100*143));
+//Bowtie
+fill(115, 115, 115);
+triangle(bitmojiX+(shirtSize/100*87),bitmojiY+(shirtSize/100*122),bitmojiX+(shirtSize/100*61),bitmojiY+(shirtSize/100*133),bitmojiX+(shirtSize/100*62),bitmojiY+(shirtSize/100*108));
+triangle(bitmojiX+(shirtSize/100*84),bitmojiY+(shirtSize/100*122),bitmojiX+(shirtSize/100*109),bitmojiY+(shirtSize/100*133),bitmojiX+(shirtSize/100*107),bitmojiY+(shirtSize/100*108));
+
+//Button
+ellipse(bitmojiX+(shirtSize/100*86), bitmojiY+(shirtSize/100*197), shirtSize/100*6, shirtSize/100*7);
+
+//Flower
+quad(bitmojiX+(shirtSize/100*135),bitmojiY+(shirtSize/100*161),bitmojiX+(shirtSize/100*122),bitmojiY+(shirtSize/100*163),bitmojiX+(shirtSize/100*148),bitmojiY+(shirtSize/100*140),bitmojiX+(shirtSize/100*154),bitmojiY+(shirtSize/100*141));
+fill(255, 255, 255);
+triangle(bitmojiX+(shirtSize/100*154),bitmojiY+(shirtSize/100*127),bitmojiX+(shirtSize/100*145),bitmojiY+(shirtSize/100*133),bitmojiX+(shirtSize/100*152),bitmojiY+(shirtSize/100*154));
+triangle(bitmojiX+(shirtSize/100*167),bitmojiY+(shirtSize/100*134),bitmojiX+(shirtSize/100*153),bitmojiY+(shirtSize/100*133),bitmojiX+(shirtSize/100*152),bitmojiY+(shirtSize/100*147));
+fill(0, 130, 33);
+triangle(bitmojiX+(shirtSize/100*158),bitmojiY+(shirtSize/100*148),bitmojiX+(shirtSize/100*145),bitmojiY+(shirtSize/100*140),bitmojiX+(shirtSize/100*169),bitmojiY+(shirtSize/100*140));
+triangle(bitmojiX+(shirtSize/100*145),bitmojiY+(shirtSize/100*126),bitmojiX+(shirtSize/100*142),bitmojiY+(shirtSize/100*136),bitmojiX+(shirtSize/100*152),bitmojiY+(shirtSize/100*149));
+
+//Text Name
+fill(0, 221, 255);
+textSize(shirtSize/100*21);
+text("NR", bitmojiX+(shirtSize/100*17), bitmojiY+(shirtSize/100*179), shirtSize/100*53, shirtSize/100*119);
+};
+
+
+var drawBitmoji = function(bitmojiX, bitmojiY, bitmojiSize)
+{
+
+drawFace(bitmojiX+100,bitmojiY+100,bitmojiSize/100*100);
+drawHair(bitmojiX+100,bitmojiY+100,bitmojiSize/100*100);
+drawShirt(bitmojiX+100,bitmojiY+100,bitmojiSize/100*100);
+
+};
