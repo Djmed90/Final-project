@@ -195,13 +195,48 @@ var drawShirtD = function(x,y,h)
         drawFaceD (x,y,h);
         drawShirtD (x,y,h);
     };
-
-
-
-
+//Bitmoji Drawing ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//------------------------------------------------------------------------------------------
 
 var currentScene = 0;
+var BallX = 200;
+var BallMoveX = 1;
+var BallY = 200;
+var BallMoveY = 0;
+var BallSpeed = 2.5;
 
+//CONSTANTS
+var GRAVITY = 0.3;
+
+//function for ball and its movement
+var Ball = function() 
+ {
+    ellipse(BallX,BallY,10,10);
+    BallMoveY += GRAVITY;
+    BallY += BallMoveY;
+    BallX += BallMoveX;
+    
+    if(BallY>330)
+    {
+        BallMoveY *= -1;
+    }
+    if(BallX>310)
+    {
+        BallMoveX *= -1;
+    }
+     if(BallX<80)
+    {
+        BallMoveX *= -1;
+    }
+     if(BallY>334)
+    {
+        BallMoveY *= 0;
+        BallMoveX *= 0;
+        GRAVITY = 0;
+    }
+ };
+ 
+ 
 var Button = function(config) {
     this.x = config.x || -1;
     this.y = config.y || 0;
@@ -257,7 +292,7 @@ var splash = function ()
     drawBitmoji(-103,120,109,101);
 
 };
-var walls = function () //THe Bounds(Walls)
+var walls1 = function () //THe Bounds(Walls)
 {
     background(0, 0, 0);
     stroke(255, 255, 255);
@@ -266,7 +301,7 @@ var walls = function () //THe Bounds(Walls)
     line(60,350,330,350);
     line(60,50,60,350);
     line(330,50,330,350);
-    ellipse(200,200,10,10);
+    Ball();
 };
     
 mouseClicked = function() {
@@ -278,10 +313,9 @@ mouseClicked = function() {
 draw = function() {
     if (currentScene === 0) 
         { splash();
-        
         }
     if (currentScene === 1)
-    { walls();
+    { walls1();
     }
         
 };
