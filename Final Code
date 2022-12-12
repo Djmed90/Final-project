@@ -202,7 +202,7 @@ var currentScene = 0;
 //Constants
 var BallX = 200;
 var BallY = 200;
-var dx  = 0;
+var dx = 4;
 var dy = 2;
 var Level = true;
 var trys = 0;
@@ -210,41 +210,32 @@ var gameover = false;
 angleMode = "degrees";
 
 
-
+var Walls = function(x,y,x2,y2)
+    {
+        strokeWeight(15);
+        stroke(255, 255, 255);
+        line(x,y,x2,y2);
+    };
 
   var Ball= function()
     {
         fill(255, 255, 255);
         ellipse(BallX,BallY,20,20);
-        this.x = BallX;
-        this.y = BallY;
+        if(BallX >= width-60 || BallX < 60)
+            {
+                trys--;
+                dx = dx * -1;
+            }
+        if(BallY >= height-60 || BallY===20)
+            {
+                trys--;
+              dy = -dy ;
+            }
         BallX = BallX + dx;
         BallY = BallY + dy;
     };
-    
-// Walls Function
-var Walls = function(x, y, w, h) 
-{
-      this.x = x;
-      this.y = y;
-      this.w = w;
-      this.h = h;
-      rect(x,y,w,h);
-      
-        if( BallX === 10 + this.x + this.w || BallX  ===  this.y - 10 + this.w)
-            {
-                dx = dx * -1;
-                trys--;
-            }
-       if (BallY === this.y - 10 + this.w ||BallY === this.x + this.w )
-           {
-               dy = dy * - 1;
-              trys--;
-           }
-};
 
 
-        
 var Button = function(config) {
     this.x = config.x || -1;
     this.y = config.y || 0;
@@ -324,7 +315,7 @@ var setup = function ()
         //Constants
     BallX = 200;
     BallY = 200;
-    dx = 1;
+    dx = 3;
     dy = 0;
     Level = true;
     trys = 0;
@@ -335,7 +326,7 @@ var walls1 = function () //THe Bounds(Walls)
 {
     if (Level === true)
         {
-         trys = 4;
+         trys = 3;
          Level = false;
         }
     background(0, 0, 0);
@@ -343,18 +334,15 @@ var walls1 = function () //THe Bounds(Walls)
     textSize(300);
     text(trys,120,20,400,400);
     Ball();
-    fill(255, 255, 255);
-    Walls(50,350,320,20);
-    Walls(50,50,20,300);
-    Walls(350,50,20,300);
-    Walls(50,30,320,20);
+    Walls(50,350,50,50);
+    Walls(350,50,350,350);
+    Walls(350,50,50,50);
+    Walls(350,350,50,350);
     strokeWeight(1);
-    if(trys === 1000 )
+    if(trys === 0)
     {
-        BallX = 200;
-        BallY = 200;
-        dy = 0;
         dx = 0;
+        dy = 0;
         fill(0, 0, 0);
         rect(0,100,400,150);
         fill(255, 255, 255);
@@ -362,7 +350,6 @@ var walls1 = function () //THe Bounds(Walls)
         text("Game Over!",126,135,203,100);
         restartButton.draw();
     }
- 
 };
     
 mouseClicked = function() {
@@ -391,4 +378,3 @@ draw = function() {
        setup();
     }
 };
-
