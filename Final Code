@@ -197,9 +197,6 @@ var drawShirtD = function(x,y,h)
     };
 //Bitmoji Drawing ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //------------------------------------------------------------------------------------------
-
-var currentScene = 0;
-//Constants
 var BallX = 200;
 var BallY = 200;
 var dx = 4;
@@ -207,8 +204,13 @@ var dy = 2;
 var Level = true;
 var trys = 0;
 var gameover = false;
-angleMode = "degrees";
-
+var currentScene = 0;
+//Constants
+var xPositions = [random(400)];
+var yPositions = [0];
+var starColors=[];
+var starSpeeds=[];
+var numDrops = 30;
 
 var Walls = function(x,y,x2,y2)
     {
@@ -285,13 +287,39 @@ var restartButton = new Button({
     }
 });
 
+ for (var i = 0; i < numDrops; i++) //What creates the Stars
+{
+    xPositions.push(random(0,400));
+    yPositions.push(random(0,400));
+    starColors.push(color(255, 246, 117));
+    starSpeeds.push(round(random(1,2)));
+}
+ 
+ var space = function() //Space Background
+ {
+    background(0, 0, 0);
+    noStroke();
+    
+    for (var i = 0; i < xPositions.length; i++) {
+        fill(starColors[i]);
+        ellipse(xPositions[i], yPositions[i], 2, 2);
+        yPositions[i] += starSpeeds[i];
+        if(yPositions[i]>400)
+            {
+               yPositions[i]=0;     
+            }
+    }
+    fill(0, 0, 0);
+    ellipse(381,0,17,45);
+};
+   
 var splash = function ()
 {
     
     background(60, 212, 250);
     fill(0, 0, 0);
     textSize(55);
-    text("Walls", 128, 95);
+    text("Space Walls", 49, 95);
     fill(0, 0, 0);
     textSize(15);
     text("By: Nick Rapoza and Darren Medeiros", 76, 180);
@@ -329,7 +357,7 @@ var walls1 = function () //THe Bounds(Walls)
          trys = 3;
          Level = false;
         }
-    background(0, 0, 0);
+   space();
     fill(140, 132, 132);
     textSize(300);
     text(trys,120,20,400,400);
@@ -378,3 +406,4 @@ draw = function() {
        setup();
     }
 };
+
