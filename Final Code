@@ -217,8 +217,7 @@ var gameover = false;
 var currentScene = 0;
 var doorShape = true;
 //Constants
-var colorCounter = 0; //Used for "Rainbow" coloring as timer
-var rainbowline = true;
+var GlowingDoor = true;
 var xPositions = [random(400)];
 var yPositions = [0];
 var starColors=[];
@@ -226,8 +225,8 @@ var starSpeeds=[];
 var numDrops = 30;
 var win = false;
 var shot = false;
-var letgo = true;
-var pressed = true;
+var letgo = false;
+var pressed = false;
 var shotRIGHT = false;
 var shotLEFT = false;
 var shotUP = false;
@@ -243,7 +242,7 @@ var Walls = function(x,y,x2,y2) //our walls
       var Door = function(x,y,x2,y2,ColorGlow,Y) //glowing door
     {
     var StrokeWeight=12;
-    if(rainbowline){
+    if(GlowingDoor){
         colorMode(HSB);
         stroke(255, 255, 255,20);
         colorMode(RGB);
@@ -316,9 +315,9 @@ var restartButton = new Button({
         gameover = true;
     Level = true;
     shot = false;
-     letgo = true;
+     letgo = false;
      trys1 = false;
-         pressed = true;
+         pressed = false;
          shotRIGHT = false;
          shotLEFT = false;
          shotUP = false;
@@ -336,9 +335,9 @@ var winButton = new Button({
            currentScene = currentScene +1;
            Level = true;
     shot = false;
-     letgo = true;
+     letgo = false;
      trys1 = false;
-         pressed = true;
+         pressed = false;
          shotRIGHT = false;
          shotLEFT = false;
          shotUP = false;
@@ -377,16 +376,15 @@ var winButton = new Button({
      
     var BallMoveX = differenceX/Ball_Speed;
     var BallMoveY = differenceY/Ball_Speed;
-if (pressed === true) {
+
     mousePressed = function() {
 // when mouse is pressed, save the current position
 x1 = mouseX;
 y1 = mouseY;
-letgo = false;
-pressed = false;
+
 };
-}
-if (letgo === false) {
+
+
 mouseReleased = function() {
 // when mouse is released, calculate the opposite direction
     x2 = mouseX;
@@ -395,11 +393,9 @@ mouseReleased = function() {
     differenceY = y1 - y2;
     
     shot = true;
-    letgo = true;
-    
 };
-}
-    
+
+
 
     //Ball Draw
     ellipse(BallX,BallY,10,10);
@@ -1038,6 +1034,8 @@ var walls4 = function () //FOURTH LEVEL
             text("Level Complete",103,129,242,100);
             winButton.draw();
         }
+        fill(255, 255, 255);
+        textSize(26);
         text("Level " + currentScene + "!",160,8,100,100);
       
 };
@@ -1094,6 +1092,8 @@ var walls5 = function () //FIFTH LEVEL
             text("Level Complete",103,129,242,100);
             winButton.draw();
         }
+        fill(255, 255, 255);
+        textSize(26);
         text("Level " + currentScene + "!",160,8,100,100);
 };
 
@@ -1161,3 +1161,5 @@ draw = function() { // OUR AMAZING DRAW FUNCTION
     }
     
 };
+
+               
